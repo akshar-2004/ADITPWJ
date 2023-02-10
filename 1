@@ -1,0 +1,36 @@
+public class BankAccount {
+  private static int nextAccNo = 1;
+  private String depositorName;
+  private int accNo;
+  private String accType;
+  private double balance;
+
+  public BankAccount() {
+    accNo = nextAccNo++;
+  }
+
+  public void createAcc(String depositorName, String accType) {
+    this.depositorName = depositorName;
+    this.accType = accType;
+    balance = 0.0;
+  }
+
+  public void deposit(double amount) {
+    balance += amount;
+  }
+
+  public void withdraw(double amount) {
+    if (balance >= amount) {
+      balance -= amount;
+    } else {
+      System.out.println("Insufficient balance.");
+    }
+  }
+
+  public void balanceInquiry() {
+    System.out.println("Acc No: " + accNo);
+    System.out.println("Depositor Name: " + depositorName);
+    System.out.println("Acc Type: " + accType);
+    System.out.println("Balance: " + balance);
+  }
+}
